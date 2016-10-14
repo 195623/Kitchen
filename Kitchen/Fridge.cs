@@ -12,7 +12,7 @@ namespace Kitchen
 
         public void Request_Ingredients(List<string> orderNames)
         {
-            // send list of names to outside database
+            // send list of names to outside database.
         }
 
         public List<Ingredient> Return_Ingredients()
