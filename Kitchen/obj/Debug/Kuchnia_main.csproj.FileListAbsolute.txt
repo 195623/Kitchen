@@ -1,0 +1,8 @@
+c:\users\student\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\Kuchnia.exe.config
+c:\users\student\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\Kuchnia.exe
+c:\users\student\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\Kuchnia.pdb
+c:\users\student\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\Kuchnia.exe
+c:\users\student\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\Kuchnia.pdb
+C:\Users\Administrator\Desktop\Edukacja\Studia\INF_1\5_semestr\Inżynieria Oprogramowania\ConsoleApplication1\ConsoleApplication1\bin\Debug\Kuchnia.exe.config
+C:\Users\Administrator\Desktop\Edukacja\Studia\INF_1\5_semestr\Inżynieria Oprogramowania\ConsoleApplication1\ConsoleApplication1\obj\Debug\Kuchnia.exe
+C:\Users\Administrator\Desktop\Edukacja\Studia\INF_1\5_semestr\Inżynieria Oprogramowania\ConsoleApplication1\ConsoleApplication1\obj\Debug\Kuchnia.pdb
