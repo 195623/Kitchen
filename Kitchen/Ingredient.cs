@@ -10,13 +10,16 @@ namespace Kitchen
 
     class Ingredient
     {
-        public Ingredient(string name, int ingredientID)
+        public Ingredient(string name)
         {
             this.name = name;
-            this.ingredientID = ingredientID;
         }
 
-        private int ingredientID;
+        public string Name()
+        {
+            return this.name;
+        }
+
         private string name;
     }
 }

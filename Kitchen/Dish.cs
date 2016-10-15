@@ -8,13 +8,13 @@ namespace Kitchen
 {
     class Dish
     {
-        public Dish(int dishID, List<Ingredient> ingredients)
+        public Dish(string dishName, List<Ingredient> ingredients)
         {
-            this.dishID = dishID;
-            this.ingredients = ingredients;
+            this.dishName = dishName;
+            this.ingredients = ingredients;            
         }
 
-        private int dishID;
-        private List<Ingredient> ingredients;
+        private string dishName;
+        private List<Ingredient> ingredients = new List<Ingredient>();
     }
 }

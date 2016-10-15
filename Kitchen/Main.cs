@@ -12,17 +12,13 @@ namespace Kitchen_main
     {
         static void Main()
         {
-            Fridge fridge;
+            Console.WriteLine("Hello.");
 
+            Fridge fridge = new Fridge() ;
+            List<Ingredient> ingredients = fridge.Return_Ingredients();
 
-
-
-
-
-
-
-
-
+            Chef chef = new Chef();
+            Dish dish = chef.Make_Dish("Tomato sandwich",ingredients);
 
             Console.ReadKey();
         }
