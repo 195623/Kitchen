@@ -31,21 +31,30 @@ namespace Kitchen
             }
 
             List<string> recipeIngredientNames = new List<string>();
+            List<string> fridgeIngredientNames = fridge.Return_ingredientNames();
 
             if (recipeID >= 0) recipeIngredientNames = recipes[recipeID].Return_ingredientNames();
             else return false;
 
-            List<string> fridgeIngredientNames = fridge.Return_ingredientNames();
+            
 
             int nrec = recipeIngredientNames.Count;
             int nfri = fridgeIngredientNames.Count;
+
+            int foundIngredients = 0;
 
             for( int i = 0; i<nrec; i++ )
             {
                 for( int j = 0; j<nfri; j++)
                 {
-
+                    if( fridgeIngredientNames[j]==recipeIngredientNames[i])
+                    {
+                        foundIngredients++;
+                        break;
+                    }
                 }
+
+                if (foundIngredients == nrec) return true;
             }
 
             return false;
