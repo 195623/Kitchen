@@ -12,6 +12,27 @@ namespace Kitchen_main
     {
         static void Main()
         {
+            List<Recipe> recipes = new List<Recipe>();
+
+            List<string> ingredientNames = new List<string>();
+            ingredientNames.Add("Bread");
+            ingredientNames.Add("Butter");
+            ingredientNames.Add("Tomato");
+            Recipe thisRecipe = new Recipe("Sandwich", ingredientNames);
+            recipes.Add(thisRecipe);          
+
+            ingredientNames.Clear();
+
+            ingredientNames.Add("Bread");
+            ingredientNames.Add("Weiner");
+            ingredientNames.Add("Tomato");
+            thisRecipe = new Recipe("Hot dog", ingredientNames);
+            recipes.Add(thisRecipe);
+
+            //--------
+
+            CookBook cookBook = new CookBook(recipes);
+
             Fridge fridge = new Fridge() ;
 
             fridge.Add_Ingredient("Tomato");
