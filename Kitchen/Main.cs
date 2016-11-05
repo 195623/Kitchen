@@ -26,22 +26,5 @@ namespace Kitchen_main
             Console.ReadKey();
         }
 
-
-
-
-
-
-
-
     }
-
-    
-
-    
-
-    
-
-    
-
-    
 }
