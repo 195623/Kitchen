@@ -29,6 +29,19 @@ namespace Kitchen
             return this.ingredients;
         }
 
+        public List<string> Return_ingredientNames()
+        {
+            List<string> ingredientNames = new List<string>();
+            int n = ingredients.Count;
+            for( int i = 0; i<n; i++ )
+            {
+                string thisName = ingredients[i].Return_Name();
+                ingredientNames.Add(thisName);
+            }
+
+            return ingredientNames;
+        }
+
         public void Add_Ingredients(List<string> namedIngredients)
         {
             // convert names to Ingredients

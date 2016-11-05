@@ -14,6 +14,16 @@ namespace Kitchen
             this.ingredientNames = ingredientNames;
         }
 
+        public string Return_Name()
+        {
+            return this.name;
+        }
+
+        public List<string> Return_ingredientNames()
+        {
+            return this.ingredientNames;
+        }
+
         private string name;
         private List<string> ingredientNames;
     }
