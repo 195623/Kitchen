@@ -31,19 +31,19 @@ namespace Kitchen
             {
                 for (int i = 0; i < ingredients.Count; i++)
                 {
-                    if (i1 == -1 && ingredients[i].Name() == "Bread")
+                    if (i1 == -1 && ingredients[i].Return_Name() == "Bread")
                     {
                         i1 = i;
                         usedIngredients.Add(ingredients[i1]);
                         Console.WriteLine("Found bread.");
                     }
-                    if (i2 == -1 && ingredients[i].Name() == "Butter")
+                    if (i2 == -1 && ingredients[i].Return_Name() == "Butter")
                     {
                         i2 = i;
                         usedIngredients.Add(ingredients[i2]);
                         Console.WriteLine("Found butter.");
                     }
-                    if (i3 == -1 && ingredients[i].Name() == "Tomato")
+                    if (i3 == -1 && ingredients[i].Return_Name() == "Tomato")
                     {
                         i3 = i;
                         usedIngredients.Add(ingredients[i3]);
@@ -73,5 +73,7 @@ namespace Kitchen
             return dish;
             
         }
+
+        
     }
 }

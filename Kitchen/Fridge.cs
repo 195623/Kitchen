@@ -45,9 +45,22 @@ namespace Kitchen
             //this.ingredients.AddRange(newIngredients);
         }
 
-        public void Remove_Ingredients(List<string> namedIngredients)
+        public void Remove_Ingredient( string name )
         {
-            // Remove ingredients based on name                                    
+            int n = this.ingredients.Count;
+            int found = -1;
+
+            for( int i = 0; i<n; i++)
+            {
+                if (this.ingredients[i].Return_Name() == name)
+                {
+                    found = i;
+                    break;
+                }
+            }
+
+            if (found >= 0) this.ingredients.RemoveAt(found);
+            else Console.WriteLine("Couldn't find the {0} in the Fridge.", name);
         }
 
         private List<Ingredient> ingredients = new List<Ingredient>();

@@ -15,7 +15,7 @@ namespace Kitchen
             this.name = name;
         }
 
-        public string Name()
+        public string Return_Name()
         {
             return this.name;
         }
