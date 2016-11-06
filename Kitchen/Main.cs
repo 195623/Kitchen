@@ -18,14 +18,14 @@ namespace Kitchen_main
             ingredientNames.Add("Bread");
             ingredientNames.Add("Butter");
             ingredientNames.Add("Tomato");
-            Recipe thisRecipe = new Recipe("Sandwich", ingredientNames);
+            Recipe thisRecipe = new Recipe("Tomato sandwich", ingredientNames);
             recipes.Add(thisRecipe);          
 
             ingredientNames.Clear();
 
             ingredientNames.Add("Bread");
             ingredientNames.Add("Weiner");
-            ingredientNames.Add("Tomato");
+            ingredientNames.Add("Ketchup");
             thisRecipe = new Recipe("Hot dog", ingredientNames);
             recipes.Add(thisRecipe);
 
@@ -39,10 +39,12 @@ namespace Kitchen_main
             fridge.Add_Ingredient("Bread");
             fridge.Add_Ingredient("Butter");
 
-            //List<Ingredient> ingredients = fridge.Return_Ingredients();
+            Bills bills = new Bills() ;
 
-            Chef chef = new Chef();
-            Dish dish = chef.Make_Dish("Tomato sandwich",fridge);
+            Chef chef = new Chef(fridge, cookBook, bills);
+
+            Console.WriteLine("** Enough-ingredients' truth value = {0}\n",cookBook.Enough_Ingredients("Tomato sandwich", fridge));
+            Dish dish = chef.Make_Dish("Tomato sandwich");
 
             Console.ReadKey();
         }

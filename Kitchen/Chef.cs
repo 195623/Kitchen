@@ -8,15 +8,19 @@ namespace Kitchen
 {
     class Chef
     {
-        public Chef()
+        public Chef(Fridge fridge, CookBook cookBook, Bills bills)
         {
             Console.WriteLine("Chef constructor.");
 
+            this.usedFridge = fridge;
+            this.usedCookBook = cookBook;
+            this.usedBills = bills;
+
         }
 
-        public Dish Make_Dish(string dishName, Fridge fridge )
+        public Dish Make_Dish(string dishName )
         {
-            List<Ingredient> ingredients = fridge.Return_Ingredients();
+            List<Ingredient> ingredients = usedFridge.Return_Ingredients();
 
             List<Ingredient> empty = new List<Ingredient>();
             Dish dish = new Dish("", empty);
@@ -73,6 +77,11 @@ namespace Kitchen
             return dish;
             
         }
+
+
+        private Fridge usedFridge;
+        private CookBook usedCookBook;
+        private Bills usedBills;
 
         
     }

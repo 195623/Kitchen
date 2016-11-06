@@ -23,9 +23,10 @@ namespace Kitchen
             {
                 string thisRecipeName = recipes[i].Return_Name();
 
-                if( thisRecipeName == dishName )
+                if( thisRecipeName == dishName ) // find recipe with the requested name
                 {
                     recipeID = i;
+                    Console.WriteLine("** Chosen recipe for: {0}", thisRecipeName);
                     break;
                 }
             }
@@ -34,7 +35,7 @@ namespace Kitchen
             List<string> fridgeIngredientNames = fridge.Return_ingredientNames();
 
             if (recipeID >= 0) recipeIngredientNames = recipes[recipeID].Return_ingredientNames();
-            else return false;
+            else return false; // return false if there are no recipes with the requested name
 
             
 
@@ -47,14 +48,16 @@ namespace Kitchen
             {
                 for( int j = 0; j<nfri; j++)
                 {
-                    if( fridgeIngredientNames[j]==recipeIngredientNames[i])
+                    Console.WriteLine("- Comparing {0} and {1} ...",recipeIngredientNames[i], fridgeIngredientNames[j]);
+                    if( recipeIngredientNames[i]== fridgeIngredientNames[j]) // find in fridge the #i inredient listed in the recipe
                     {
+                        Console.WriteLine("* Found ingredient: {0}", recipeIngredientNames[i]);
                         foundIngredients++;
                         break;
                     }
                 }
 
-                if (foundIngredients == nrec) return true;
+                if (foundIngredients == nrec) return true; // return true if all recipe ingredients were found in the fridge
             }
 
             return false;
