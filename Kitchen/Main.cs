@@ -43,10 +43,28 @@ namespace Kitchen_main
 
             Chef chef = new Chef(fridge, cookBook, bills);
 
-            Console.WriteLine("** Enough-ingredients' truth value = {0}\n",cookBook.Enough_Ingredients("Tomato sandwich", fridge));
+            // --
+
+
+
+
+
+            //Console.WriteLine("** Enough-ingredients' truth value = {0}\n",cookBook.Enough_Ingredients("Tomato sandwich", fridge));
             Dish dish = chef.Make_Dish("Tomato sandwich");
 
             Console.ReadKey();
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
     }

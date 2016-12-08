@@ -20,62 +20,41 @@ namespace Kitchen
 
         public Dish Make_Dish(string dishName )
         {
-            List<Ingredient> ingredients = usedFridge.Return_Ingredients();
+            List<Ingredient> ingredients = new List<Ingredient>();
+            List<string> ingredientNames = new List<string>();
 
-            List<Ingredient> empty = new List<Ingredient>();
-            Dish dish = new Dish("", empty);
+            Dish dish = new Dish("",ingredients);
 
-            int i1 = -1,
-                i2 = -1,
-                i3 = -1;
-
-            List<Ingredient> usedIngredients = new List<Ingredient>();
-
-            if (dishName == "Tomato sandwich")
+            if( this.usedCookBook.Enough_Ingredients(dishName, this.usedFridge) )
             {
-                for (int i = 0; i < ingredients.Count; i++)
-                {
-                    if (i1 == -1 && ingredients[i].Return_Name() == "Bread")
-                    {
-                        i1 = i;
-                        usedIngredients.Add(ingredients[i1]);
-                        Console.WriteLine("Found bread.");
-                    }
-                    if (i2 == -1 && ingredients[i].Return_Name() == "Butter")
-                    {
-                        i2 = i;
-                        usedIngredients.Add(ingredients[i2]);
-                        Console.WriteLine("Found butter.");
-                    }
-                    if (i3 == -1 && ingredients[i].Return_Name() == "Tomato")
-                    {
-                        i3 = i;
-                        usedIngredients.Add(ingredients[i3]);
-                        Console.WriteLine("Found tomato.");
-                    }
+                Console.WriteLine("Enough ingredients for a {0}.", dishName);
 
-                    if (i1 >= 0)
-                    {
-                        if (i2 >= 0)
-                        {
-                            if (i3 >= 0)
-                            {
-                                Console.WriteLine("{0} created.", dishName);
-                                dish = new Dish("Tomato sandwich", usedIngredients);
-                                
-                                // Remove_Named_Ingredients()
-                            }
-                            //else Console.WriteLine("Tomato not present.");
-                        }
-                        //else Console.WriteLine("Butter not present.");
-                    }
-                    //else Console.WriteLine("Bread not present.");
-                }
+                ingredientNames = this.usedCookBook.Return_Ingredients(dishName);
+
+                ingredients = Names_To_Ingredients(ingredientNames);
+                
+                // remove ingredients from fridge
+
+                // put ingredients into dish, and create it
             }
-            else Console.WriteLine("No such dish as \"{0}\" in the menu.",dishName);
+
 
             return dish;
             
+            
+        }
+
+        public List<Ingredient> Names_To_Ingredients( List<string> ingredientNames )
+        {
+            List<Ingredient> ingredients = new List<Ingredient>();
+
+            int n = ingredientNames.Count;
+            for ( int i = 0; i<n; i++ )
+            {
+                ingredients.Add(new Ingredient(ingredientNames[i]) );
+            }
+
+            return ingredients;
         }
 
 

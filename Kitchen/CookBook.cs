@@ -4,10 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Kitchen
 {
+
     class CookBook
     {
+        public bool displayComments = false;
+
         public CookBook( List<Recipe> recipes )
         {
             this.recipes = recipes;
@@ -26,7 +31,7 @@ namespace Kitchen
                 if( thisRecipeName == dishName ) // find recipe with the requested name
                 {
                     recipeID = i;
-                    Console.WriteLine("** Chosen recipe for: {0}", thisRecipeName);
+                    if( displayComments ) Console.WriteLine("** Chosen recipe for: {0}", thisRecipeName);
                     break;
                 }
             }
@@ -48,10 +53,10 @@ namespace Kitchen
             {
                 for( int j = 0; j<nfri; j++)
                 {
-                    Console.WriteLine("- Comparing {0} and {1} ...",recipeIngredientNames[i], fridgeIngredientNames[j]);
+                    if (displayComments)  Console.WriteLine("- Comparing {0} and {1} ...",recipeIngredientNames[i], fridgeIngredientNames[j]);
                     if( recipeIngredientNames[i]== fridgeIngredientNames[j]) // find in fridge the #i inredient listed in the recipe
                     {
-                        Console.WriteLine("* Found ingredient: {0}", recipeIngredientNames[i]);
+                        if (displayComments)  Console.WriteLine("* Found ingredient: {0}", recipeIngredientNames[i]);
                         foundIngredients++;
                         break;
                     }
@@ -61,6 +66,24 @@ namespace Kitchen
             }
 
             return false;
+        }
+
+        public List<string> Return_Ingredients( string dishName )
+        {
+            List<string> ingredientNames = new List<string>();
+
+            int n = this.recipes.Count;
+            for( int i = 0; i<n; i++ )
+            {
+                if ( this.recipes[i].Return_Name() == dishName )
+                {
+                    return this.recipes[i].Return_ingredientNames();
+                }
+            }
+
+            Console.WriteLine("There is no dish named \"{0}\" in the CookBook.",dishName);
+
+            return ingredientNames;
         }
 
         private List<Recipe> recipes;
