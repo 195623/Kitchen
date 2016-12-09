@@ -10,7 +10,10 @@ namespace Kitchen
     {
         public Fridge()
         {
-            
+            this.Add_Ingredient("Tomato");
+            this.Add_Ingredient("Bread");
+            this.Add_Ingredient("Butter");
+
         }
 
         public void Add_Ingredient( string name )
