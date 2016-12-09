@@ -41,8 +41,7 @@ namespace Kitchen
 
         public bool Enough_Ingredients( string dishName, Fridge fridge )
         {
-            if (showComments) Console.WriteLine("Enough_Ingredients()");
-
+            Console.WriteLine("CookBook::Enough_Ingredients() - start");
 
             int n = recipes.Count;
 
@@ -66,6 +65,7 @@ namespace Kitchen
             else
             {
                 Console.WriteLine("Zero recipes with name \"{0}\" found.",dishName);
+                Console.WriteLine("CookBook::Enough_Ingredients() - return false");
                 return false; // return false if there are no recipes with the requested name
             }
 
@@ -91,17 +91,22 @@ namespace Kitchen
                 }
 
                 if (showComments) Console.WriteLine("Found {0} ingredients.", foundIngredients);
-                if (foundIngredients == nrec) return true; // return true if all recipe ingredients were found in the fridge
+                if (foundIngredients == nrec)
+                {
+                    Console.WriteLine("CookBook::Enough_Ingredients() - return true");
+                    return true; // return true if all recipe ingredients were found in the fridge
+                }
                 //else Console.WriteLine("Not all ingredients found for dish {0}.", dishName);
             }
 
+
+            Console.WriteLine("CookBook::Enough_Ingredients() - return false");
             return false;
         }
 
 
         public List<string> Return_Ingredients( string dishName )
         {
-            Console.WriteLine("Return_Ingredients()");
             List<string> ingredientNames = new List<string>();
 
             int n = this.recipes.Count;

@@ -44,7 +44,7 @@ namespace Kitchen_main
             Chef chef = new Chef(fridge, cookBook, bills);
             Dish dish = chef.Make_Dish("Tomato sandwich");
 
-            Console.WriteLine("\"{0}\"",dish.Return_Name());
+            Console.WriteLine("Main: Made dish: \"{0}\"",dish.Return_Name());
 
             // --
 
