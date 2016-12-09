@@ -10,8 +10,6 @@ namespace Kitchen
     {
         public Chef(Fridge fridge, CookBook cookBook, Bills bills)
         {
-            Console.WriteLine("Chef constructor.");
-
             this.usedFridge = fridge;
             this.usedCookBook = cookBook;
             this.usedBills = bills;
@@ -31,11 +29,18 @@ namespace Kitchen
 
                 ingredientNames = this.usedCookBook.Return_Ingredients(dishName);
 
-                ingredients = Names_To_Ingredients(ingredientNames);
-                
-                // remove ingredients from fridge
+                if( ingredientNames.Count > 1 )
+                {
+                    ingredients = Names_To_Ingredients(ingredientNames);
 
-                // put ingredients into dish, and create it
+                    // remove ingredients from fridge
+
+                    dish = new Dish(dishName, ingredients);
+
+                    Console.WriteLine("Successfully created dish named \"{0}\".", dishName);
+                }
+
+                
             }
 
 

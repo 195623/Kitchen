@@ -12,7 +12,7 @@ namespace Kitchen_main
     {
         static void Main()
         {
-            List<Recipe> recipes = new List<Recipe>();
+            /*List<Recipe> recipes = new List<Recipe>();
 
             List<string> ingredientNames = new List<string>();
             ingredientNames.Add("Bread");
@@ -27,11 +27,11 @@ namespace Kitchen_main
             ingredientNames.Add("Weiner");
             ingredientNames.Add("Ketchup");
             thisRecipe = new Recipe("Hot dog", ingredientNames);
-            recipes.Add(thisRecipe);
+            recipes.Add(thisRecipe);*/
 
             //--------
 
-            CookBook cookBook = new CookBook(recipes);
+            CookBook cookBook = new CookBook();
 
             Fridge fridge = new Fridge() ;
 
@@ -42,6 +42,9 @@ namespace Kitchen_main
             Bills bills = new Bills() ;
 
             Chef chef = new Chef(fridge, cookBook, bills);
+            Dish dish = chef.Make_Dish("Tomato sandwich");
+
+            Console.WriteLine("\"{0}\"",dish.Return_Name());
 
             // --
 
@@ -50,7 +53,7 @@ namespace Kitchen_main
 
 
             //Console.WriteLine("** Enough-ingredients' truth value = {0}\n",cookBook.Enough_Ingredients("Tomato sandwich", fridge));
-            Dish dish = chef.Make_Dish("Tomato sandwich");
+
 
             Console.ReadKey();
 

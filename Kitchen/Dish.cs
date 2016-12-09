@@ -11,7 +11,12 @@ namespace Kitchen
         public Dish(string dishName, List<Ingredient> ingredients)
         {
             this.dishName = dishName;
-            this.ingredients = ingredients;            
+            this.ingredients = new List<Ingredient>(ingredients);            
+        }
+
+        public string Return_Name()
+        {
+            return this.dishName;
         }
 
         private string dishName;

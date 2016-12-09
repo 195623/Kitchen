@@ -11,18 +11,41 @@ namespace Kitchen
 
     class CookBook
     {
+                                                public bool showComments = false;
+        
+
         public bool displayComments = false;
 
-        public CookBook( List<Recipe> recipes )
+        public CookBook()
         {
-            this.recipes = recipes;
+            List<string> ingredientNames = new List<string>();
+            ingredientNames.Add("Bread");
+            ingredientNames.Add("Butter");
+            ingredientNames.Add("Tomato");
+            //Recipe thisRecipe = new Recipe("Tomato sandwich", ingredientNames);
+            (this.recipes).Add(new Recipe("Tomato sandwich", ingredientNames));
+
+            // --
+
+            ingredientNames.Clear();
+
+            ingredientNames.Add("Bread");
+            ingredientNames.Add("Weiner");
+            ingredientNames.Add("Ketchup");
+            //thisRecipe = new Recipe("Hot dog", ingredientNames);
+            (this.recipes).Add(new Recipe("Hot dog", ingredientNames));
+
+            this.Display_Recipes();
         }
+
 
         public bool Enough_Ingredients( string dishName, Fridge fridge )
         {
+            if (showComments) Console.WriteLine("Enough_Ingredients()");
 
 
             int n = recipes.Count;
+
             int recipeID = -1;
             for( int i = 0; i<n; i++)
             {
@@ -31,7 +54,7 @@ namespace Kitchen
                 if( thisRecipeName == dishName ) // find recipe with the requested name
                 {
                     recipeID = i;
-                    if( displayComments ) Console.WriteLine("** Chosen recipe for: {0}", thisRecipeName);
+                    if (showComments)  Console.WriteLine("- Chosen recipe for: {0}", thisRecipeName);
                     break;
                 }
             }
@@ -40,9 +63,12 @@ namespace Kitchen
             List<string> fridgeIngredientNames = fridge.Return_ingredientNames();
 
             if (recipeID >= 0) recipeIngredientNames = recipes[recipeID].Return_ingredientNames();
-            else return false; // return false if there are no recipes with the requested name
+            else
+            {
+                Console.WriteLine("Zero recipes with name \"{0}\" found.",dishName);
+                return false; // return false if there are no recipes with the requested name
+            }
 
-            
 
             int nrec = recipeIngredientNames.Count;
             int nfri = fridgeIngredientNames.Count;
@@ -53,23 +79,29 @@ namespace Kitchen
             {
                 for( int j = 0; j<nfri; j++)
                 {
-                    if (displayComments)  Console.WriteLine("- Comparing {0} and {1} ...",recipeIngredientNames[i], fridgeIngredientNames[j]);
-                    if( recipeIngredientNames[i]== fridgeIngredientNames[j]) // find in fridge the #i inredient listed in the recipe
+                    if (showComments) Console.WriteLine("- Comparing {0} and {1} ...",recipeIngredientNames[i], fridgeIngredientNames[j]);
+                    
+
+                    if ( recipeIngredientNames[i]== fridgeIngredientNames[j]) // find in fridge the #i inredient listed in the recipe
                     {
-                        if (displayComments)  Console.WriteLine("* Found ingredient: {0}", recipeIngredientNames[i]);
+                        if (showComments) Console.WriteLine("Found fridge ingredient: {0}", fridgeIngredientNames[j]);
                         foundIngredients++;
                         break;
                     }
                 }
 
+                if (showComments) Console.WriteLine("Found {0} ingredients.", foundIngredients);
                 if (foundIngredients == nrec) return true; // return true if all recipe ingredients were found in the fridge
+                //else Console.WriteLine("Not all ingredients found for dish {0}.", dishName);
             }
 
             return false;
         }
 
+
         public List<string> Return_Ingredients( string dishName )
         {
+            Console.WriteLine("Return_Ingredients()");
             List<string> ingredientNames = new List<string>();
 
             int n = this.recipes.Count;
@@ -86,6 +118,28 @@ namespace Kitchen
             return ingredientNames;
         }
 
-        private List<Recipe> recipes;
+        public void Display_Recipes()
+        {
+            if (showComments)
+            {
+                Console.WriteLine("\n----------------");
+                Console.WriteLine("All recipes:");
+                int n = this.recipes.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    Console.WriteLine("\n{0}:", recipes[i].Return_Name());
+                    List<string> recipeNames = recipes[i].Return_ingredientNames();
+
+                    int m = recipeNames.Count;
+
+                    for (int j = 0; j < m; j++) Console.WriteLine("* {0}", recipeNames[j]);
+                }
+                Console.WriteLine("----------------\n");
+            }
+            
+        }
+
+        private List<Recipe> recipes = new List<Recipe>();
+
     }
 }
