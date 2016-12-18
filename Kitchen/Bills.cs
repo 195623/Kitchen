@@ -17,6 +17,16 @@ namespace Kitchen
             //return this;
         }
 
+        public void Display_Bills()
+        {
+            for(int i = 0; i<bills.Count;i++)
+            {
+                Console.WriteLine("Bill #{0}:", i + 1);
+                bills[i].Display_Bill();
+                Console.WriteLine();
+            }
+        }
+
         public void Add_Dish_To_Newest_Bill( Dish dish )
         {
             //Console.WriteLine("Added dish to newest bill.");

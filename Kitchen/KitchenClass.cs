@@ -18,10 +18,16 @@ namespace Kitchen
             chef = new Chef(fridge, cookBook, bills);
 
             bills.Add_Bill(thisCustomerID);
-            
-            bills.Add_Dish_To_Newest_Bill(chef.Make_Dish("Tomato sandwich"));
-            bills.Add_Dish_To_Newest_Bill(chef.Make_Dish("Hot dog"));
+            Order_Dish("Tomato sandwich");
+            Order_Dish("Hot dog");
 
+            bills.Display_Bills();
+
+        }
+
+        void Order_Dish(string dishName)
+        {
+            bills.Add_Dish_To_Newest_Bill(chef.Make_Dish(dishName));
         }
 
         private Bills bills = new Bills();

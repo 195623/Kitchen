@@ -37,7 +37,7 @@ namespace Kitchen
 
                     dish = new Dish(dishName, ingredients);
 
-                    Console.WriteLine("Successfully created dish named \"{0}\".", dishName);
+                    Console.WriteLine("Successfully created dish named \"{0}\".\n", dishName);
                 }
 
                 
