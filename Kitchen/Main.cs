@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 using Kitchen;
 
+//TO DO:
+// Console.Write -- only in main; other files have only data-outputing functions.
+
 namespace Kitchen_main
 {
     class Program
@@ -23,6 +26,10 @@ namespace Kitchen_main
             Dish dish = chef.Make_Dish("Tomato sandwich");
 
             Console.WriteLine("Main: Made dish: \"{0}\"",dish.Return_Name());
+
+            Bill bill = new Bill(1, 1);
+            bill.Add_Dish(dish);
+            bill.Display_Bill();
 
             // --
 
