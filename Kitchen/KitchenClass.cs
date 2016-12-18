@@ -13,23 +13,15 @@ namespace Kitchen
 
         public void Start()
         {
+            int thisCustomerID = 1;
 
             chef = new Chef(fridge, cookBook, bills);
-            this.Order_Food("Tomato sandwich");
 
-        }
+            bills.Add_Bill(thisCustomerID);
+            
+            bills.Add_Dish_To_Newest_Bill(chef.Make_Dish("Tomato sandwich"));
+            bills.Add_Dish_To_Newest_Bill(chef.Make_Dish("Hot dog"));
 
-        public void Order_Food( string foodName )
-        {
-            Dish dish = chef.Make_Dish(foodName);
-
-            Console.WriteLine("Main: Made dish: \"{0}\"", dish.Return_Name());
-
-            Bill bill = new Bill(1, 1);
-            bill.Add_Dish(dish);
-            bill.Display_Bill();
-
-            bills.Add_Bill(bill);
         }
 
         private Bills bills = new Bills();

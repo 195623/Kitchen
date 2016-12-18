@@ -12,8 +12,10 @@ namespace Kitchen
         {
             this.Add_Ingredient("Tomato");
             this.Add_Ingredient("Bread");
-            this.Add_Ingredient("Butter");
-
+            this.Add_Ingredient("Bread");
+            this.Add_Ingredient("Butter");            
+            this.Add_Ingredient("Ketchup");
+            this.Add_Ingredient("Weiner");
         }
 
         public void Add_Ingredient( string name )

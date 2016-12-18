@@ -8,23 +8,22 @@ namespace Kitchen
 {
     class Bill
     {
-        public Bill(int billID, int customerID)
+        public Bill(int customerID)
         {
-            this.billID = billID;
             this.customerID = customerID;
             dishes = new List<Dish>();
         }
 
         public void Add_Dish( Dish dish )
         {
-            dishes.Add(dish);
+            dishes.Add( dish );
         }
 
         public void Display_Bill()
         {
             int n = dishes.Count;
 
-            Console.WriteLine("\nList of dishes in customer #{0}'s bill #{1}:",customerID,billID);
+            Console.WriteLine("\nList of dishes in customer #{0}'s bill:",customerID);
 
             for(int i = 0; i<n; i++ )
             {
@@ -32,7 +31,6 @@ namespace Kitchen
             }
         }
 
-        private int billID;
         private int customerID;
         private List<Dish> dishes;
     }
