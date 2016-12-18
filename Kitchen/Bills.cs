@@ -15,6 +15,6 @@ namespace Kitchen
             this.bills.Add(bill);
         }
 
-        private List<Bill> bills;
+        private List<Bill> bills = new List<Bill>();
     }
 }

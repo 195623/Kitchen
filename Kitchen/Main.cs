@@ -15,44 +15,12 @@ namespace Kitchen_main
     {
         static void Main()
         {
+            KitchenClass kitchen = new KitchenClass();
+            kitchen.Start();
 
-            CookBook cookBook = new CookBook();
-
-            Fridge fridge = new Fridge() ;
-
-            Bills bills = new Bills() ;
-
-            Chef chef = new Chef(fridge, cookBook, bills);
-            Dish dish = chef.Make_Dish("Tomato sandwich");
-
-            Console.WriteLine("Main: Made dish: \"{0}\"",dish.Return_Name());
-
-            Bill bill = new Bill(1, 1);
-            bill.Add_Dish(dish);
-            bill.Display_Bill();
-
-            // --
-
-
-
-
-
-            //Console.WriteLine("** Enough-ingredients' truth value = {0}\n",cookBook.Enough_Ingredients("Tomato sandwich", fridge));
-
+            
 
             Console.ReadKey();
-
-
-
-
-
-
-
-
-
-
-
-
         }
 
     }
