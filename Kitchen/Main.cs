@@ -16,7 +16,12 @@ namespace Kitchen_main
         static void Main()
         {
             KitchenClass kitchen = new KitchenClass();
-            kitchen.Start();
+
+            kitchen.New_Bill_For_Customer(1);
+            kitchen.Order_Dish("Tomato sandwich");
+            kitchen.Order_Dish("Hot dog");
+
+            kitchen.Display_Bills();
 
             
 

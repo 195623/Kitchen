@@ -22,7 +22,6 @@ namespace Kitchen
             ingredientNames.Add("Bread");
             ingredientNames.Add("Butter");
             ingredientNames.Add("Tomato");
-            //Recipe thisRecipe = new Recipe("Tomato sandwich", ingredientNames);
             (this.recipes).Add(new Recipe("Tomato sandwich", ingredientNames));
 
             // --
@@ -32,7 +31,6 @@ namespace Kitchen
             ingredientNames.Add("Bread");
             ingredientNames.Add("Weiner");
             ingredientNames.Add("Ketchup");
-            //thisRecipe = new Recipe("Hot dog", ingredientNames);
             (this.recipes).Add(new Recipe("Hot dog", ingredientNames));
 
             this.Display_Recipes();
@@ -41,7 +39,6 @@ namespace Kitchen
 
         public bool Enough_Ingredients( string dishName, Fridge fridge )
         {
-            Console.WriteLine("CookBook::Enough_Ingredients() - start");
 
             int n = recipes.Count;
 
@@ -93,14 +90,10 @@ namespace Kitchen
                 if (showComments) Console.WriteLine("Found {0} ingredients.", foundIngredients);
                 if (foundIngredients == nrec)
                 {
-                    Console.WriteLine("CookBook::Enough_Ingredients() - return true");
-                    return true; // return true if all recipe ingredients were found in the fridge
+                    return true; 
                 }
-                //else Console.WriteLine("Not all ingredients found for dish {0}.", dishName);
             }
 
-
-            Console.WriteLine("CookBook::Enough_Ingredients() - return false");
             return false;
         }
 
@@ -125,8 +118,6 @@ namespace Kitchen
 
         public void Display_Recipes()
         {
-            if (showComments)
-            {
                 Console.WriteLine("\n----------------");
                 Console.WriteLine("All recipes:");
                 int n = this.recipes.Count;
@@ -140,8 +131,6 @@ namespace Kitchen
                     for (int j = 0; j < m; j++) Console.WriteLine("* {0}", recipeNames[j]);
                 }
                 Console.WriteLine("----------------\n");
-            }
-            
         }
 
         private List<Recipe> recipes = new List<Recipe>();
