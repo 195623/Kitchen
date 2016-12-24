@@ -19,16 +19,24 @@ namespace Kitchen
             dishes.Add( dish );
         }
 
-        public void Display_Bill()
+        public string Display_Bill()
         {
+            string outputString = "";
+            string custID = customerID.ToString();
+
             int n = dishes.Count;
 
-            Console.WriteLine("\nList of dishes in customer #{0}'s bill:",customerID);
+            outputString += "\nList of dishes in the bill of customer #";
+            outputString += custID;
+            outputString += ":\n";
 
             for(int i = 0; i<n; i++ )
             {
-                Console.WriteLine("- {0}",dishes[i].Return_Name());
+                outputString += "- ";
+                outputString += dishes[i].Return_Name() ;
+                outputString += '\n';
             }
+            return outputString;
         }
 
         private int customerID;

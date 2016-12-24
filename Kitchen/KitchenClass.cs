@@ -30,7 +30,7 @@ namespace Kitchen
 
         public void Display_Bills()
         {
-            bills.Display_Bills();
+            Console.WriteLine(bills.Display_Bills());
         }
 
         private Bills bills = new Bills();

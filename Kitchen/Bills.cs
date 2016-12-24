@@ -17,14 +17,24 @@ namespace Kitchen
             //return this;
         }
 
-        public void Display_Bills()
+        public string Display_Bills()
         {
+            string outputString = "";
+            string intString = "";
+            
             for(int i = 0; i<bills.Count;i++)
             {
-                Console.WriteLine("Bill #{0}:", i + 1);
-                bills[i].Display_Bill();
-                Console.WriteLine();
+                intString = (i+1).ToString();
+
+                outputString += "Bill " ;
+                outputString += intString;
+                outputString += "#:\n";
+
+                outputString += bills[i].Display_Bill();
+                outputString += '\n';
             }
+
+            return outputString;
         }
 
         public void Add_Dish_To_Newest_Bill( Dish dish )
