@@ -46,6 +46,7 @@
     <Compile Include="Bill.cs" />
     <Compile Include="Chef.cs" />
     <Compile Include="Bills.cs" />
+    <Compile Include="to_do.cs" />
     <Compile Include="CookBook.cs" />
     <Compile Include="Dish.cs" />
     <Compile Include="Ingredient.cs" />

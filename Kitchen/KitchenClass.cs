@@ -18,9 +18,25 @@ namespace Kitchen
 
         }
 
-        public void Order_Dish(string dishName)
+        public List<string> Order_Dish(string dishName)
         {
-            bills.Add_Dish_To_Newest_Bill(chef.Make_Dish(dishName));
+            List<string> missingIngredientsNames = cookBook.List_Missing_Ingredients(dishName, fridge);
+            if (missingIngredientsNames.Count == 0)
+            {
+                bills.Add_Dish_To_Newest_Bill(chef.Make_Dish(dishName));
+            }
+            else
+            {
+                Console.WriteLine("  Missing ingredients to make the \"{0}\" dish:", dishName);
+                for (int i = 0; i < missingIngredientsNames.Count; i++)
+                {
+                    Console.WriteLine("   - {0}", missingIngredientsNames[i]);
+                }
+
+                
+            }
+
+            return missingIngredientsNames;
         }
 
         public void New_Bill_For_Customer( int customerID )

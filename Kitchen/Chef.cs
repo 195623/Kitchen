@@ -23,31 +23,24 @@ namespace Kitchen
 
             Dish dish = new Dish("",ingredients);
 
-            if( this.usedCookBook.Enough_Ingredients(dishName, this.usedFridge) )
-            {
-                Console.WriteLine("Enough ingredients for a {0}.", dishName);
-
                 ingredientNames = this.usedCookBook.Return_Ingredients(dishName);
 
-                if( ingredientNames.Count > 1 )
-                {
-                    ingredients = Names_To_Ingredients(ingredientNames);
+            if (ingredientNames.Count > 1)
+            {
+                ingredients = Names_To_Ingredients(ingredientNames);
 
-                    // remove ingredients from fridge
+                // remove ingredients from fridge
 
-                    dish = new Dish(dishName, ingredients);
+                dish = new Dish(dishName, ingredients);
 
-                    Console.WriteLine("Successfully created dish named \"{0}\".\n", dishName);
-                }
-
-                
+                Console.WriteLine("Successfully created dish named \"{0}\".\n", dishName);
             }
+            else Console.WriteLine("Too few ingredients in {0}'s recipe.", dishName);
 
-
-            return dish;
-            
+            return dish;            
             
         }
+
 
         public List<Ingredient> Names_To_Ingredients( List<string> ingredientNames )
         {
