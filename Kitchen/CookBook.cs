@@ -22,7 +22,7 @@ namespace Kitchen
             ingredientNames.Add("Bread");
             ingredientNames.Add("Butter");
             ingredientNames.Add("Tomato");
-            (this.recipes).Add(new Recipe("Tomato sandwich", ingredientNames));
+            (this.recipes).Add(new Recipe("Tomato sandwich", ingredientNames,5));
 
             // --
 
@@ -31,9 +31,20 @@ namespace Kitchen
             ingredientNames.Add("Bread");
             ingredientNames.Add("Weiner");
             ingredientNames.Add("Ketchup");
-            (this.recipes).Add(new Recipe("Hot dog", ingredientNames));
+            (this.recipes).Add(new Recipe("Hot dog", ingredientNames,7));
 
             this.Display_Recipes();
+        }
+
+        public int Name_To_Price( string dishName )
+        {
+            for( int i = 0; i<this.recipes.Count; i++ )
+            {
+                if (recipes[i].Return_Name() == dishName) return recipes[i].Return_price();
+            }
+
+            Console.WriteLine("CookBook::Name_To_Price(): there is no dish named \"{0}\".", dishName);
+            return -1;
         }
 
 

@@ -21,7 +21,7 @@ namespace Kitchen
             List<Ingredient> ingredients = new List<Ingredient>();
             List<string> ingredientNames = new List<string>();
 
-            Dish dish = new Dish("",ingredients);
+            Dish dish = new Dish("",ingredients,0);
 
                 ingredientNames = this.usedCookBook.Return_Ingredients(dishName);
 
@@ -31,7 +31,8 @@ namespace Kitchen
 
                 // remove ingredients from fridge
 
-                dish = new Dish(dishName, ingredients);
+                int price = usedCookBook.Name_To_Price(dishName);
+                dish = new Dish(dishName, ingredients,price);
 
                 Console.WriteLine("Successfully created dish named \"{0}\".\n", dishName);
             }

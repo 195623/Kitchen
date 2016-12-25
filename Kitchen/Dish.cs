@@ -8,10 +8,11 @@ namespace Kitchen
 {
     class Dish
     {
-        public Dish(string dishName, List<Ingredient> ingredients)
+        public Dish(string dishName, List<Ingredient> ingredients, int price )
         {
             this.dishName = dishName;
-            this.ingredients = new List<Ingredient>(ingredients);            
+            this.ingredients = new List<Ingredient>(ingredients);
+            this.price = price;         
         }
 
         public string Return_Name()
@@ -19,7 +20,13 @@ namespace Kitchen
             return this.dishName;
         }
 
+        public int Return_Price()
+        {
+            return this.price;
+        }
+
         private string dishName;
         private List<Ingredient> ingredients = new List<Ingredient>();
+        private int price;
     }
 }

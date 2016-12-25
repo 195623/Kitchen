@@ -12,11 +12,14 @@ namespace Kitchen
         {
             this.customerID = customerID;
             dishes = new List<Dish>();
+            this.totalCost = 0;
+
         }
 
         public void Add_Dish( Dish dish )
         {
             dishes.Add( dish );
+            totalCost+=dish.Return_Price();
         }
 
         public string Display_Bill()
@@ -36,10 +39,33 @@ namespace Kitchen
                 outputString += dishes[i].Return_Name() ;
                 outputString += '\n';
             }
+
+            outputString += "\n\nTotal cost: ";
+            outputString += totalCost.ToString();
+            outputString += ".";
+
             return outputString;
+        }
+
+        public int Bill_Price()
+        {
+            int price = 0;
+
+            for( int i = 0; i<dishes.Count;i++)
+            {
+                price += dishes[i].Return_Price();
+            }
+
+            return price;
+        }
+
+        public int Return_TotalCost()
+        {
+            return this.totalCost;
         }
 
         private int customerID;
         private List<Dish> dishes;
+        private int totalCost;
     }
 }
