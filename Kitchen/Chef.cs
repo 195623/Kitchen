@@ -34,7 +34,7 @@ namespace Kitchen
                 int price = usedCookBook.Name_To_Price(dishName);
                 dish = new Dish(dishName, ingredients,price);
 
-                Console.WriteLine("Successfully created dish named \"{0}\".\n", dishName);
+                Console.WriteLine(" Successfully created dish named \"{0}\".\n", dishName);
             }
             else Console.WriteLine("Too few ingredients in {0}'s recipe.", dishName);
 

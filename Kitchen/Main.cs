@@ -18,8 +18,24 @@ namespace Kitchen_main
             KitchenClass kitchen = new KitchenClass();
 
             kitchen.New_Bill_For_Customer(1);
-            kitchen.Order_Dish("Tomato sandwich");
-            kitchen.Order_Dish("Hot dog");
+
+            // Order_Dish outputs a List<string>
+
+            List<string> missingIngredients = new List<string>();
+
+            missingIngredients.AddRange(kitchen.Order_Dish("Tomato sandwich"));
+
+            missingIngredients.AddRange(kitchen.Order_Dish("Hot dog"));
+
+            // Request missingIngredients from the TRANSPORT module
+            Console.WriteLine("\n\n  Ingredients missing in all dishes:");
+
+            for(int i = 0; i<missingIngredients.Count; i++ )
+            {
+                Console.WriteLine("  - {0},", missingIngredients[i]);
+            }
+
+            Console.WriteLine("\n");
 
             kitchen.Display_Bills();
 
