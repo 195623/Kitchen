@@ -56,6 +56,15 @@ namespace Kitchen
             Console.WriteLine(bills.Display_Bills());
         }
 
+        public void Add_Ingredients( List<string> listOfIngredients )
+        {
+            int n = listOfIngredients.Count;
+            for( int i = 0; i<n; i++ )
+            {
+                this.fridge.Add_Ingredient(listOfIngredients[i]);
+            }
+        }
+
         private Bills bills = new Bills();
         private Fridge fridge = new Fridge();
         private CookBook cookBook = new CookBook();
